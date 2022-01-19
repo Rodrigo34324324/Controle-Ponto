@@ -1,0 +1,280 @@
+/*
+* 
+* @author Rodrigo Miranda
+*/
+
+/*======================================
+//--//-->   ESTILO GERAL
+======================================*/
+
+/* html, body {
+    height: 100%
+} */
+
+html {
+  scroll-behavior: smooth
+}
+
+.scroll {
+    position: fixed;
+    bottom: 25px;
+    right: 2px;
+    padding: 5.5px 13px;
+    color: #fff;
+    background-color: #b5b3b3;
+    border-radius: 5px
+}
+
+.scroll:hover {
+    color: #fff
+}
+
+.negrito {
+    font-weight: bold
+}
+
+/* Navegação superior
+--------------------------- */
+.topbar {
+    height: 4.375rem
+}
+
+/* .text-truncate {
+    white-space: pre-wrap
+} */
+
+.topbar .nav-item .nav-link {
+    height: 4.375rem;
+    display: flex;
+    align-items: center;
+    padding: .75rem
+}
+
+/* .topbar.navbar-light .navbar-nav .nav-link {
+    color: #d1d3e2
+} */
+
+.dropdown-toggle::after {
+    content: none
+}
+
+.form-control:focus {
+    box-shadow: none
+}
+
+.input-group-append button {
+    box-shadow: none !important
+}
+
+.topbar .badge-counter {
+    position: absolute;
+    transform: scale(.7);
+    transform-origin: top right;
+    right: .25rem;
+    margin-top: -.25rem
+}
+
+.badge {
+    border-radius: .35rem;
+    font-size: 80%
+}
+
+.badge-danger {
+    background-color: #f95668
+}
+
+.topbar .rounded-circle {
+    width: 40px;
+    height: 40px
+}
+
+.topbar-divider {
+    border-right: 1px solid #e3e6f0;
+    height: calc(4.375rem - 2rem);
+    margin: auto 1rem
+}
+
+.topbar .dropdown-list {
+    width: 17rem
+}
+
+#procurar-dropdown ~ .dropdown-menu {
+    width: 13rem
+}
+
+.dropdown-toggle i {
+    font-size: 20px
+}
+
+/* Navegação lateral
+--------------------------- */
+/* .navbar-nav .nav-link {
+    font-size: 17px;
+    font-weight: 900;
+    display: inline
+} */
+
+.navbar-nav li {
+    margin: 0px 30px
+}
+
+/* Redes sociais
+--------------------------- */
+.redes-sociais i {
+    font-size: 2.4rem;
+    color: rgba(0, 0, 0, 0.5);
+    transition: 0.5s
+}
+
+.redes-sociais i:hover {
+    transform: translateY(-5px)
+}
+
+/* Informações e opções
+--------------------------- */
+.opcoes i {
+    /*color: #b5b3b3;*/
+    font-size: 21px;
+    border: 1px solid #b5b3b3;
+    border-radius: 5px;
+    padding: 6px;
+    cursor: pointer
+}
+
+.hora-atual /* .info-funcionarios */ {
+    font-size: 21px;
+    font-weight: 900
+}
+
+/*======================================
+//--//-->   INDEX
+======================================*/
+
+.lista li {
+    background-color: #fff;
+    box-shadow: rgb(38, 57, 77) 0px 7.5px 11.25px -7.5px;
+    border: 1px solid #e3dada;
+    border-radius: 5px;
+    margin-top: 12px;
+    padding: 10px;
+    transition: 0.5s
+}
+
+.lista li:hover {
+    box-shadow: rgba(38, 57, 77, 0.6) 0px 10px 15px -10px;
+    transform: translateY(-5px)
+}
+
+.fa-check-circle {
+    font-size: 19px
+}
+
+.presente {
+    color: #007bff
+}
+
+.ausente {
+    color: #6c757d
+}
+
+/* .fa-info-circle {
+    font-size: 19px;
+    color: #6c757d
+} */
+
+.data-tempo-trabalho {
+    font-size: 12px;
+    font-weight: bold
+}
+
+.fa-exclamation-triangle {
+    margin-left: 10.75px;
+    margin-right: 10.75px
+}
+
+/* Timeline
+--------------------------- */
+/* #img1, #img2, #img3 {
+    border: 3px solid #ffffff;
+    position: absolute
+}
+
+#img1 {
+    left: 1%;
+    z-index: 3
+}
+
+#img2 {
+    left: 4%;
+    z-index: 2
+}
+
+#img3 {
+    left: 7%;
+    z-index: 1
+} */
+
+/*======================================
+//--//-->   NOVO FUNCIONÁRIO
+======================================*/
+
+.status-inclusao {
+    height: 68px
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    #area-formulario {
+        margin: auto
+    }
+    #todos-funcionarios .scroll {
+        right: 10px
+    }
+    #index .scroll {
+        opacity: 0.4;
+        transition: .5s
+    }
+    #index .scroll:hover {
+        opacity: 1
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    #area-formulario {
+        margin: auto
+    }
+    #index .scroll {
+        opacity: 0.4;
+        transition: .5s
+    }
+    #index .scroll:hover {
+        opacity: 1
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    #area-formulario {
+        margin: auto
+    }
+    #index .scroll {
+        opacity: 0.4;
+        transition: .5s
+    }
+    #index .scroll:hover {
+        opacity: 1
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+/* @media (min-width: 992px) and (max-width: 1199.98px) {
+
+} */
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    #index .scroll {
+        right: 33px
+    }
+}

@@ -1,0 +1,87 @@
+/*
+* 
+* @author Rodrigo Miranda
+*/
+
+/*======================================
+//--//-->   TODOS FUNCIONÁRIOS
+======================================*/
+
+.container {
+    max-width: 1173px
+}
+
+.card-funcionario .card {
+    background-color: #fff;
+    max-width: 400px;
+    min-width: 365px;
+    border-radius: 10px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -20px;
+    transition: 0.9s
+}
+
+.card-funcionario .card:hover {
+    box-shadow: rgba(38, 57, 77, 0.6) 0px 25px 37.5px -25px;
+    transform: translateY(-10px)
+}
+
+.dados {
+    background: #f2f5f8
+}
+
+.tipo-dado {
+    font-size: 10px;
+    color: #a1aab9
+}
+
+.dado {
+    font-weight: 500
+}
+
+#card-email {
+    position: fixed;
+    z-index: 4
+}
+
+#card-email .card {
+    border-radius: 10px;
+    width: 500px;
+    padding: 20px
+}
+
+#card-email .img-perfil {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background-color: #e0e0e0
+}
+
+#card-email textarea {
+    padding: 15px 20px;
+    border-radius: 10px;
+    /*resize: none;*/
+    box-sizing: border-box;
+    border-color: #f5f5f5;
+    letter-spacing: 1px;
+    height: 120px;
+    width: 100%
+}
+
+#card-email textarea:focus {
+    border-color: rgba(0, 0, 0, .1);
+    outline-width: 0
+}
+
+#card-email ::placeholder {
+    color: #bdbdbd
+}
+
+#card-email .opcoes {
+    font-size: 20px;
+    color: #757575;
+    cursor: pointer
+}
+
+#card-email .opcoes:hover {
+    color: #000
+}

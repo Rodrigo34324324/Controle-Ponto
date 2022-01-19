@@ -1,0 +1,89 @@
+/*
+* 
+* @author Rodrigo Miranda
+*/
+
+/*======================================
+//--//-->   RELATÓRIO
+======================================*/
+
+body {
+    color: #333;
+    background-color: #eee
+}
+
+.mt-50 {
+    margin-top: 50px
+}
+
+.mb-50 {
+    margin-bottom: 50px
+}
+
+.card {
+    border-radius: .1875rem;
+    font-size: .8125rem;
+    line-height: 1.5385
+}
+
+.card-body {
+    text-align: center
+}
+
+.card-title {
+    margin-top: 10px;
+    font-size: 17px
+}
+
+.report-color {
+    color: red
+}
+
+.card-header {
+    padding: .9375rem 1.25rem
+}
+
+.card a {
+    text-decoration: none !important
+}
+
+.btn-light {
+    color: #333;
+    background-color: #fafafa;
+    border-color: #ddd
+}
+
+.header-elements-inline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+@media (min-width: 768px) {
+    .wmin-md-400 {
+        min-width: 400px !important
+    }
+}
+
+.btn-primary {
+    background-color: #2196f3
+}
+
+input[type="month"] {
+    width: 184px;
+    color: #333;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    transition: 0.3s
+}
+
+input[type="month"]:hover {
+    color: #212529;
+    background-color: #e2e6ea;
+    border-color: #dae0e5
+}
+
+input[type="month"]:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5)
+}

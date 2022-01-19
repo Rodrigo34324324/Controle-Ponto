@@ -1,0 +1,22 @@
+/*
+* 
+* @author Rodrigo Miranda
+*/
+
+/*======================================
+//--//-->   INDEX
+======================================*/
+
+.container {
+    max-width: 1173px
+}
+
+.lista button {
+	font-size: 14px;
+	border-radius: 4px;
+	padding: 0px 6px
+}
+
+.lista button {
+    box-shadow: none !important
+}
