@@ -83,6 +83,11 @@ class FuncionarioService {
 		$stmt->bindValue(':fk_idfuncionario', $this->funcionario->__get('id'));
 		$stmt->execute();
 
+		$query = 'delete from historico_atividades where fk_idfuncionario = :fk_idfuncionario';
+		$stmt = $this->conexao->prepare($query);
+		$stmt->bindValue(':fk_idfuncionario', $this->funcionario->__get('id'));
+		$stmt->execute();
+
 		$query = 'delete from funcionarios where idfuncionario = :idfuncionario';
 		$stmt = $this->conexao->prepare($query);
 		$stmt->bindValue(':idfuncionario', $this->funcionario->__get('id'));

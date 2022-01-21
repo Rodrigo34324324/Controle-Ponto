@@ -38,6 +38,9 @@ function editarFuncionario(id, arquivo, nome, sobrenome, email, telefone, cep, d
 	document.getElementById('cep').value = cep
 	getDadosEnderecoPorCEP(cep)
 	document.getElementById('admissao').value = dataAdmissao
+	document.getElementById('img-funcionario-atualizar').src = 'img/'+arquivo
+	document.getElementById('nome-funcionario-atualizar').innerText = nome
+	document.getElementById('email-funcionario-atualizar').innerText = email
 }
 
 
@@ -157,3 +160,28 @@ function md5(d){return rstr2hex(binl2rstr(binl_md5(rstr2binl(d),8*d.length)))}fu
 //console.log(md5('c644c3d7').toLowerCase())
 
 //console.log(md5('c644c3d7'))
+
+
+function pesquisarFuncionarioIndex(id) {
+	let entrada = document.getElementById(id).value
+	entrada = entrada.toLowerCase()
+
+	let funcionarios = document.getElementsByClassName('li')
+
+	for(i = 0; i < funcionarios.length; i++) {
+		let nome = funcionarios[i].getElementsByTagName('h6')[0].innerText
+		let email = funcionarios[i].getElementsByTagName('h6')[0].getAttribute('title')
+
+		if(!nome.toLowerCase().includes(entrada) && !email.includes(entrada)) {
+			funcionarios[i].style.visibility = 'hidden'
+		} else {
+			funcionarios[i].style.visibility = 'visible'
+		}
+	}
+}
+
+
+function toggleFormEditarFuncionario() {
+	let form_funcionario = document.getElementById('atualizar-funcionario')
+	form_funcionario.classList.toggle("d-block")
+}

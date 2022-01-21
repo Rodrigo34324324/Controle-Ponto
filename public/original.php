@@ -1,12 +1,15 @@
 <?php
 
 date_default_timezone_set('America/Sao_Paulo');
+//$hora_atual = date('H:i:s');
 
 setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
-$data_atual = strftime('%d '.ucfirst(strftime('%b')).' %Y');
+//$data_atual = strftime('%A, %d de %B de %Y');
+//$data_relatorio = strftime('%Y-%m');
+//$data_relatorio = isset($_GET['data_relatorio']) ? $_GET['data_relatorio'] : strftime('%Y-%m');
 
-$acao = 'recuperar';
-require 'jornada_controller.php'
+$acao = 'mostrar_form';
+require 'funcionario_controller.php'
 
 ?>
 
@@ -20,9 +23,8 @@ require 'jornada_controller.php'
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 
-    <!-- CSS Styles -->
+    <!-- CSS Style -->
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
-    <link rel="stylesheet" type="text/css" href="css/estilo-index.css">
 
     <!-- JS File -->
     <script src="js/main.js"></script>
@@ -32,7 +34,7 @@ require 'jornada_controller.php'
 
     <title>App Controle Ponto</title>
   </head>
-  <body id="index">
+  <body>
     <!-- <nav class="navbar navbar-light border-bottom mb-4">
       <div class="container">
         <div class="navbar-brand mb-0 h1">
@@ -43,7 +45,7 @@ require 'jornada_controller.php'
     <nav class="navbar navbar-expand navbar-light bg-white topbar mb-5 shadow">
       <form class="d-none d-sm-inline-block form-inline ml-md-3">
         <div class="input-group">
-          <input type="text" class="form-control bg-light border-0" id="barra-pesquisa" placeholder="Procure por..." onkeyup="pesquisarFuncionarioIndex('barra-pesquisa')">
+          <input type="text" class="form-control bg-light border-0" placeholder="Procure por...">
           <div class="input-group-append"><button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button></div>
         </div>
       </form>
@@ -116,19 +118,19 @@ require 'jornada_controller.php'
           </a>
           <div class="dropdown-list dropdown-menu dropdown-menu-right shadow" aria-labelledby="menu-dropdown">
             <h6 class="dropdown-header">Menu</h6>
-            <a class="dropdown-item d-flex align-items-center" href="#">
+            <a class="dropdown-item d-flex align-items-center" href="index.php">
               <div class="mr-3"><i class="fas fa-fingerprint"></i></div>
               <div>Bater Ponto</div>
             </a>
-            <a class="dropdown-item d-flex align-items-center" href="#" onclick="acessarRecursoRestrito('novo_funcionario.php', 1)">
+            <a class="dropdown-item d-flex align-items-center" href="#">
               <div class="mr-3"><i class="fas fa-user-plus"></i></div>
               <div>Adicionar Funcionário</div>
             </a>
-            <a class="dropdown-item d-flex align-items-center" href="#" onclick="acessarRecursoRestrito('todos_funcionarios.php', 1)">
+            <a class="dropdown-item d-flex align-items-center" href="todos_funcionarios.php">
               <div class="mr-3"><i class="fas fa-users"></i></i></div>
               <div>Funcionários</div>
             </a>
-            <a class="dropdown-item d-flex align-items-center" href="#" onclick="acessarRecursoRestrito('relatorio.php', 1)">
+            <a class="dropdown-item d-flex align-items-center" href="relatorio.php">
               <div class="mr-3"><i class="fas fa-folder-open"></i></div>
               <div>Gerar Relatório</div>
             </a>
@@ -163,95 +165,129 @@ require 'jornada_controller.php'
     </nav>
 
     <div class="container">
-      <div class="mb-4 text-center redes-sociais">
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-          <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
+      <div class="mb-5 text-center status-inclusao">
+        <!-- <ul class="list-inline">
+          <li class="list-inline-item"><a href="#"><i class="fab fa-github"></i></a></li>
+          <li class="list-inline-item"><a href="#"><i class="fab fa-gitlab"></i></a></li>
           <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-        </ul>
+        </ul> -->
+
+        <?php if(isset($_GET['inclusao']) == null) { ?>
+          <div class="alert alert-warning alert-dismissible fade show shadow-sm" role="alert">
+            <span class="negrito">Atenção!</span> Certifique-se do preenchimento correto de todos os campos.
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <?php } ?>
+
+        <?php if(isset($_GET['inclusao']) && $_GET['inclusao'] == 1) { ?>
+          <div class="alert alert-info alert-dismissible fade show shadow-sm" role="alert">
+            <span class="negrito">Sucesso!</span> Registro inserido em nossa base de dados.
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <?php } ?>
+
+        <?php if(isset($_GET['inclusao']) && $_GET['inclusao'] == 0) { ?>
+          <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
+            <span class="negrito">Erro!</span> E-mail já registrado em nossa base de dados.
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <?php } ?>
       </div>
 
       <div class="row">
-        <!-- <div class="d-none d-lg-block col-2 order-2">
+        <!-- <div class="d-none d-lg-block col-2 order-2 ml-auto">
           <div class="mt-5">
             <ul class="navbar-nav border-left">
-              <li class="nav-item"><a href="#" class="nav-link">Pontos</a></li>
-              <li class="nav-item"><a href="novo_funcionario.php" class="nav-link">Adicionar</a></li>
+              <li class="nav-item"><a href="index.php" class="nav-link">Pontos</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Adicionar</a></li>
               <li class="nav-item"><a href="relatorio.php" class="nav-link">Relatório</a></li>
               <li class="nav-item"><a href="todos_funcionarios.php" class="nav-link">Funcionários</a></li>
             </ul>
           </div>
         </div> -->
 
-        <div class="col-12"><!-- col-lg-10 order-1 -->
+        <div id="area-formulario" class="col-12 col-sm-11 col-md-10 mx-auto"><!-- order-1 -->
+          <h4 class="mb-3">Formulário</h4>
 
-          <div class="mt-5 d-flex justify-content-between align-items-center text-black-50">
-            <div class="hora-atual"><i class="far fa-clock"></i><span class="ml-2" id="hora-atual"></span></div>
-            <!-- <div class="info-funcionarios"><span>Expedientes concluídos(3)</span></div> -->
-            <div class="opcoes">
-              <i class="fas fa-search"></i><i class="fas fa-envelope ml-1"></i><!--<i class="fas fa-folder-open ml-1"></i>--><i class="fas fa-users ml-1"></i>
+          <form method="post" enctype="multipart/form-data" action="funcionario_controller.php?acao=inserir">
+            <div class="form-row">
+              <div class="col-4 form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="nome" name="nome" placeholder="João">
+              </div>
+              <div class="col-8 form-group">
+                <label for="sobrenome">Sobrenome</label>
+                <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Silva">
+              </div>
             </div>
-          </div>
 
-          <div class="mt-3">
-            <ul class="lista list-inline">
-              <?php
-                foreach($registros as $indice => $registro) {
-                  $presente_sn = $registro->fk_idstatus % 2 != 0 ? 'presente' : 'ausente';
+            <div class="form-row">
+              <div class="col-7 form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="joao@teste.com">
+                <small class="form-text text-muted">Não compartilhamos seu email com terceiros</small>
+              </div>
+              <div class="col-5 form-group">
+                <label for="telefone">Telefone</label>
+                <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(37) 99999 8922">
+              </div>
+            </div>
 
-                  $nome_completo = $registro->nome.' '.$registro->sobrenome;
+            <div class="row mb-3">
+              <div class="col-3">
+                <input type="text" class="form-control" name="cep" placeholder="CEP" onblur="getDadosEnderecoPorCEP(this.value)">
+              </div>
+              <div class="col-9">
+                <input type="text" class="form-control" id="logradouro" name="rua" placeholder="Logradouro" readonly>
+              </div>
+            </div>
 
-                  $entrada = strtotime($registro->entrada == null ? date('H:i:s') : $registro->entrada);
-                  $inicio_intervalo = strtotime($registro->inicio_intervalo == null ? date('H:i:s') : $registro->inicio_intervalo);
-                  $volta_intervalo = strtotime($registro->volta_intervalo == null ? date('H:i:s') : $registro->volta_intervalo);
-                  $saida = strtotime($registro->saida == null ? date('H:i:s') : $registro->saida);
-                  $jornada_trabalho = (($inicio_intervalo - $entrada) + ($saida - $volta_intervalo)) / 3600;
-                  $jornada_trabalho = floor($jornada_trabalho);
+            <div class="row mb-3">
+              <div class="col-6">
+                <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro" readonly>
+              </div>
+              <div class="col-4">
+                <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade" readonly>
+              </div>
+              <div class="col-2">
+                <input type="text" class="form-control" id="uf" name="estado" placeholder="UF" readonly>
+              </div>
+            </div>
 
-                  $ultimo_ponto = $registro->fk_idstatus == 1 ? $registro->entrada :
-                  ($registro->fk_idstatus == 2 ? $registro->inicio_intervalo :
-                  ($registro->fk_idstatus == 3 ? $registro->volta_intervalo :
-                  ($registro->fk_idstatus == 4 ? $registro->saida : 0)));
-                  $ultimo_ponto = $ultimo_ponto == 0 ? '<i class="fas fa-exclamation-triangle"></i>' :
-                  date('H', strtotime($ultimo_ponto)).'h'.date('i', strtotime($ultimo_ponto))
-              ?>
-                <li id="<?= $registro->idfuncionario ?>" class="d-flex justify-content-between li">
-                  <div class="d-flex flex-row align-items-center">
-                    <i class="fas fa-check-circle <?= $presente_sn ?>"></i>
-                    <div class="ml-2">
-                      <h6 class="mb-0" data-toggle="tooltip" data-placement="top" title="<?= $registro->email ?>"><?= $nome_completo ?></h6>
-                      <div class="d-flex flex-row mt-1 data-tempo-trabalho text-black-50">
-                        <div><i class="far fa-calendar"></i><span class="ml-2"><?= $data_atual ?> <?= $ultimo_ponto ?></span></div>
-                        <div class="ml-3"><i class="far fa-clock"></i><span class="ml-2"><?= $jornada_trabalho ?>h</span></div>
-                      </div>
-                    </div>
-                  </div>
+            <div class="row">
+              <div class="col-5 col-lg-4 form-group">
+                <label for="admissao">Admissão</label>
+                <input type="date" class="form-control" id="admissao" name="admissao">
+              </div>
+              <div class="col-7 col-lg-8 form-group">
+                <label for="foto-perfil">Foto de perfil</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="foto-perfil" name="foto-perfil">
+                  <label class="custom-file-label" for="foto-perfil">Escolher arquivo</label>
+                </div>
+              </div>
+            </div>
 
-                  <div class="d-flex flex-row align-items-center">
-                    <div class="d-flex flex-column mr-2">
-                      <div class="d-flex flex-row">
-                        <img class="rounded-circle" src="img/<?= $registro->foto ?>" width="33">
-                        <button class="btn-primary ml-2 align-self-center negrito" data-toggle="tooltip" data-placement="bottom" title="Registrar ponto" onclick="baterPonto(<?= $registro->idfuncionario ?>, '<?= $registro->palavra_passe ?>', <?= $registro->fk_idstatus ?>)">Registrar</button>
-                        <!-- <h5 class="mb-0 ml-1" onclick="baterPonto(<?= $registro->idfuncionario ?>, <?= $registro->fk_idstatus ?>)"><span class="badge badge-primary">Registrar</span></h5> -->
-                      </div>
-                      <span class="data-tempo-trabalho text-black-50">Admissão <?= $registro->data_admissao ?></span>
-                    </div>
-                    <i class="fas fa-times" type="button" data-toggle="tooltip" data-placement="bottom" title="Ocultar" onclick="fecharElemento(<?= $registro->idfuncionario ?>)"></i>
-                  </div>
-                </li>
-              <?php } ?>
-            </ul>
-          </div>
+            <!-- <hr>
 
-          <nav class="mt-5" aria-label="Páginas de registro de ponto">
-            <ul class="pagination justify-content-center">
-              <?php for($i = 1; $i <= $total_paginas; $i++) { ?>
-                <li class="page-item <?= $pagina_ativa == $i ? 'active' : '' ?> mr-1">
-                  <a class="page-link" href="?pagina=<?= $i ?>"><?= $i ?></a>
-                </li>
-              <?php } ?>
-            </ul>
-          </nav>
+            <h4 class="mb-3">Configuração</h4>
+            <div class="row">
+              <div class="col-5 col-lg-4 form-group">
+                <label for="palavra-passe">Palavra-passe</label>
+                <input type="text" class="form-control" id="palavra-passe" name="palavra-passe">
+              </div>
+            </div>
+
+            <hr> -->
+
+            <button class="btn btn-primary btn-lg btn-block mt-4">Cadastrar</button>
+          </form>
         </div>
       </div>
 
@@ -264,9 +300,6 @@ require 'jornada_controller.php'
         </ul>
       </footer>
     </div>
-
-    <!-- <a class="scroll" href="#bottom"><i class="fas fa-chevron-down"></i></a>
-    <span id="bottom"></span> -->
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

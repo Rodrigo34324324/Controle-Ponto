@@ -120,13 +120,13 @@ html {
 
 /* Redes sociais
 --------------------------- */
-.redes-sociais i {
+#index .redes-sociais i, #todos-funcionarios .redes-sociais i {
     font-size: 2.4rem;
     color: rgba(0, 0, 0, 0.5);
     transition: 0.5s
 }
 
-.redes-sociais i:hover {
+#index .redes-sociais i:hover, #todos-funcionarios .redes-sociais i:hover {
     transform: translateY(-5px)
 }
 
@@ -152,16 +152,18 @@ html {
 
 .lista li {
     background-color: #fff;
-    box-shadow: rgb(38, 57, 77) 0px 7.5px 11.25px -7.5px;
+    /*box-shadow: rgb(38, 57, 77) 0px 7.5px 11.25px -7.5px;*/
+    box-shadow: 7.5px 7.5px 5px #aaa;
     border: 1px solid #e3dada;
     border-radius: 5px;
     margin-top: 12px;
     padding: 10px;
-    transition: 0.5s
+    transition: 0.2s
 }
 
 .lista li:hover {
-    box-shadow: rgba(38, 57, 77, 0.6) 0px 10px 15px -10px;
+    /*box-shadow: rgba(38, 57, 77, 0.6) 0px 10px 15px -10px;*/
+    box-shadow: 10px 10px 6px #aaa;
     transform: translateY(-5px)
 }
 
@@ -218,15 +220,15 @@ html {
 //--//-->   NOVO FUNCIONÁRIO
 ======================================*/
 
-.status-inclusao {
+/*.status-inclusao {
     height: 68px
-}
+}*/
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
-    #area-formulario {
+    /*#area-formulario {
         margin: auto
-    }
+    }*/
     #todos-funcionarios .scroll {
         right: 10px
     }
@@ -241,9 +243,9 @@ html {
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) {
-    #area-formulario {
+    /*#area-formulario {
         margin: auto
-    }
+    }*/
     #index .scroll {
         opacity: 0.4;
         transition: .5s
@@ -255,9 +257,9 @@ html {
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) {
-    #area-formulario {
+    /*#area-formulario {
         margin: auto
-    }
+    }*/
     #index .scroll {
         opacity: 0.4;
         transition: .5s

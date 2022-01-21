@@ -16,12 +16,12 @@
     max-width: 400px;
     min-width: 365px;
     border-radius: 10px;
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -20px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -15px;
     transition: 0.9s
 }
 
 .card-funcionario .card:hover {
-    box-shadow: rgba(38, 57, 77, 0.6) 0px 25px 37.5px -25px;
+    box-shadow: rgba(38, 57, 77, 0.6) 0px 25px 37.5px -20px;
     transform: translateY(-10px)
 }
 
@@ -84,4 +84,61 @@
 
 #card-email .opcoes:hover {
     color: #000
+}
+
+#atualizar-funcionario {
+    position: fixed;
+    z-index: 4;
+    top: 1%;
+    bottom: 1%;
+    background-color: #fff
+}
+
+#atualizar-funcionario .container {
+    overflow-y: scroll;
+    height: 100%
+}
+
+.form-control:focus {
+    box-shadow: none
+}
+
+.atualizar-button:focus, .cancelar-button:focus {
+    box-shadow: none
+}
+
+.labels {
+    font-size: 11px
+}
+
+/*.range-us:hover i {
+    cursor: pointer
+}*/
+
+.redes-sociais-atualizar i {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 40px;
+    padding: 5px
+}
+
+#atualizar-funcionario .container {
+    box-shadow: 0px 10px 20px #aaa
+}
+
+input[type="file"] {
+  display: none
+}
+
+form label.foto-perfil {
+    font-size: 39px;
+    position: relative;
+    top: 10px;
+    left: 70px;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: 1s
+}
+
+form label.foto-perfil:hover {
+    transform: translateY(-5.5px)
 }

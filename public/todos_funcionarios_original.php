@@ -165,7 +165,7 @@ require 'funcionario_controller.php'
             <div class="hora-atual"><i class="far fa-clock"></i><span class="ml-2" id="hora-atual"></span></div>
             <!-- <div class="info-funcionarios"><span>Funcionários(3)</span></div> -->
             <div class="opcoes">
-              <i class="fas fa-search"></i><i class="fas fa-envelope ml-1"></i><!--<i class="fas fa-folder-open ml-1"></i>--><i class="fas fa-users ml-1"></i>
+              <i class="fas fa-search"></i><i class="fas fa-envelope ml-1"></i><i class="fas fa-folder-open ml-1"></i><i class="fas fa-users ml-1"></i>
             </div>
           </div>
 
@@ -211,7 +211,7 @@ require 'funcionario_controller.php'
                       </div>
 
                       <div class="mt-2 d-flex flex-row">
-                        <button type="button" class="btn btn-sm btn-outline-primary w-100" data-toggle="modal" data-target="#modal" onclick="toggleFormEditarFuncionario(); editarFuncionario(<?= $registro->idfuncionario ?>, '<?= $registro->foto ?>', '<?= $registro->nome ?>', '<?= $registro->sobrenome ?>', '<?= $registro->email ?>', '<?= $registro->telefone ?>', '<?= $registro->cep ?>', '<?= $registro->data_admissao ?>')">Editar</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary w-100" data-toggle="modal" data-target="#modal" onclick="editarFuncionario(<?= $registro->idfuncionario ?>, '<?= $registro->foto ?>', '<?= $registro->nome ?>', '<?= $registro->sobrenome ?>', '<?= $registro->email ?>', '<?= $registro->telefone ?>', '<?= $registro->cep ?>', '<?= $registro->data_admissao ?>')">Editar</button>
                         <button type="button" class="btn btn-sm btn-primary w-100 ml-2" onclick="removerFuncionario(<?= $registro->idfuncionario ?>)">Deletar</button>
                       </div>
                     </div>
@@ -220,7 +220,7 @@ require 'funcionario_controller.php'
               </div>
             <?php } ?>
 
-            <!--<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="titulo-modal" aria-hidden="true">
+            <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="titulo-modal" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header bg-light">
@@ -300,121 +300,6 @@ require 'funcionario_controller.php'
                   </div>
                 </div>
               </div>
-            </div>-->
-
-            <div class="d-none" id="atualizar-funcionario">
-            <div class="container rounded border">
-              <div class="row">
-                <div class="col-md-3 border-right">
-                  <div class="d-flex flex-column align-items-center py-5">
-                    <img class="rounded-circle mt-5" id="img-funcionario-atualizar" width="90">
-                    <span class="font-weight-bold" id="nome-funcionario-atualizar"></span>
-                    <span class="text-black-50" id="email-funcionario-atualizar"></span>
-                    <span>Funcionário(a)</span>
-                  </div>
-                </div>
-                <div class="col-md-5 border-right">
-                  <div class="p-3 py-5">
-                    <div class="d-flex mb-3">
-                      <h6>Formulário de cadastro</h6>
-                    </div>
-                    <?php
-                      //$desc_status_cadastro = isset($_GET['inclusao']) && $_GET['inclusao'] == 0 ? 'Email em uso, tente novamente' :
-                      //(isset($_GET['inclusao']) && $_GET['inclusao'] == 1 ? 'Cadastrado com sucesso!' :
-                      //(isset($_GET['inclusao']) == null ? '' : ''));
-
-                      //$status_cadastro = isset($_GET['inclusao']) && $_GET['inclusao'] == 0 ? 'badge-danger' :
-                      //(isset($_GET['inclusao']) && $_GET['inclusao'] == 1 ? 'badge-primary' :
-                      //(isset($_GET['inclusao']) == null ? 'd-none' : ''));
-                    ?>
-                    <!--<span class="badge shadow-sm <?= $status_cadastro ?>"><?= $desc_status_cadastro ?></span>-->
-                    <form method="post" enctype="multipart/form-data" action="funcionario_controller.php?acao=atualizar">
-                    <input type="hidden" id="id" name="id">
-                    <input type="hidden" id="arquivo" name="arquivo">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <label class="labels" for="nome">Nome</label>
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="João" required>
-                      </div>
-                      <div class="col-md-6">
-                        <label class="labels" for="sobrenome">Sobrenome</label>
-                        <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Silva" required>
-                      </div>
-                    </div>
-                    <div class="row mt-3">
-                      <div class="col-md-12">
-                        <label class="labels" for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="joao@teste.com" required>
-                      </div>
-                      <div class="col-md-6 mt-3">
-                        <label class="labels" for="telefone">Telefone</label>
-                        <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(xx) xxxxx xxxx" required>
-                      </div>
-                      <div class="col-md-6 mt-3">
-                        <label class="labels">CEP</label>
-                        <input type="text" class="form-control" id="cep" name="cep" placeholder="00000-000" onblur="getDadosEnderecoPorCEP(this.value)" required>
-                      </div>
-                      <div class="col-md-12 mt-4">
-                        <input type="text" class="form-control" id="logradouro" name="rua" placeholder="Logradouro" readonly>
-                      </div>
-                      <div class="col-md-12 mt-4">
-                        <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro" readonly>
-                      </div>
-                      <div class="col-md-6 mt-4">
-                        <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade" readonly>
-                      </div>
-                      <div class="col-md-6 mt-4">
-                        <input type="text" class="form-control" id="uf" name="estado" placeholder="UF" readonly>
-                      </div>
-                    </div>
-                    <div class="row mt-3">
-                      <div class="col-md-6">
-                        <label class="labels" for="admissao">Admissão</label>
-                        <input type="date" class="form-control" id="admissao" name="admissao" required>
-                      </div>
-                      <div class="col-md-6">
-                        <label class="foto-perfil" for="foto-perfil" data-toggle="tooltip" data-placement="bottom" title="Selecione foto de perfil">
-                          <i class="fas fa-cloud-upload-alt"></i>
-                        </label>
-                        <input type="file" id="foto-perfil" name="foto-perfil">
-                      </div>
-                    </div>
-                    <div class="mt-5 text-center">
-                      <button type="button" class="btn btn-block btn-outline-primary cancelar-button" onclick="toggleFormEditarFuncionario()">Cancelar</button>
-                      <button class="btn btn-block btn-primary atualizar-button">Atualizar</button>
-                    </div>
-                    </form>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <span>Siga-nos também</span><!--<span class="range-us px-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>-->
-                    </div>
-                    <div class="redes-sociais-atualizar">
-                      <div class="d-flex flex-row mt-3">
-                        <i class="fab fa-linkedin-in"></i>
-                        <div class="ml-1">
-                          <span class="font-weight-bold d-block">143.423 seguidores</span>
-                          <span class="d-block text-black-50 labels">Linkedin, Inc.</span>
-                          <span class="d-block text-black-50 labels">Nov 2021 - Jan 2022</span>
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="d-flex flex-row">
-                        <i class="fab fa-github"></i>
-                        <div class="ml-1">
-                          <span class="font-weight-bold d-block">105.412 estrelas</span>
-                          <span class="d-block text-black-50 labels">GitHub, Inc.</span>
-                          <span class="d-block text-black-50 labels">Nov 2021 - Jan 2022</span>
-                        </div>
-                      </div>
-                    </div>
-                    <hr>
-                  </div>
-                </div>
-              </div>
-            </div>
             </div>
 
             <div class="d-none" id="card-email">

@@ -9,7 +9,7 @@
 
 body {
     color: #333;
-    background-color: #eee
+    /*background-color: #eee*/
 }
 
 .mt-50 {
@@ -21,6 +21,7 @@ body {
 }
 
 .card {
+    box-shadow: 0px 10px 20px #aaa;
     border-radius: .1875rem;
     font-size: .8125rem;
     line-height: 1.5385

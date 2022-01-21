@@ -1,0 +1,43 @@
+.form-control:focus {
+    box-shadow: none
+}
+
+.cadastrar-button:focus {
+    box-shadow: none
+}
+
+.labels {
+    font-size: 11px
+}
+
+/*.range-us:hover i {
+    cursor: pointer
+}*/
+
+#novo-funcionario .redes-sociais i {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 40px;
+    padding: 5px
+}
+
+.container {
+    box-shadow: 0px 10px 20px #aaa
+}
+
+input[type="file"] {
+  display: none
+}
+
+form label.foto-perfil {
+    font-size: 39px;
+    position: relative;
+    top: 10px;
+    left: 70px;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: 1s
+}
+
+form label.foto-perfil:hover {
+    transform: translateY(-5.5px)
+}

@@ -23,8 +23,9 @@ require 'funcionario_controller.php'
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 
-    <!-- CSS Style -->
+    <!-- CSS Styles -->
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <link rel="stylesheet" type="text/css" href="css/estilo-novo-funcionario.css">
 
     <!-- JS File -->
     <script src="js/main.js"></script>
@@ -34,7 +35,7 @@ require 'funcionario_controller.php'
 
     <title>App Controle Ponto</title>
   </head>
-  <body>
+  <body id="novo-funcionario">
     <!-- <nav class="navbar navbar-light border-bottom mb-4">
       <div class="container">
         <div class="navbar-brand mb-0 h1">
@@ -164,130 +165,112 @@ require 'funcionario_controller.php'
       </ul>
     </nav>
 
-    <div class="container">
-      <div class="mb-5 text-center status-inclusao">
-        <!-- <ul class="list-inline">
-          <li class="list-inline-item"><a href="#"><i class="fab fa-github"></i></a></li>
-          <li class="list-inline-item"><a href="#"><i class="fab fa-gitlab"></i></a></li>
-          <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-        </ul> -->
-
-        <?php if(isset($_GET['inclusao']) == null) { ?>
-          <div class="alert alert-warning alert-dismissible fade show shadow-sm" role="alert">
-            <span class="negrito">Atenção!</span> Certifique-se do preenchimento correto de todos os campos.
-            <button type="button" class="close" data-dismiss="alert" aria-label="close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        <?php } ?>
-
-        <?php if(isset($_GET['inclusao']) && $_GET['inclusao'] == 1) { ?>
-          <div class="alert alert-info alert-dismissible fade show shadow-sm" role="alert">
-            <span class="negrito">Sucesso!</span> Registro inserido em nossa base de dados.
-            <button type="button" class="close" data-dismiss="alert" aria-label="close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        <?php } ?>
-
-        <?php if(isset($_GET['inclusao']) && $_GET['inclusao'] == 0) { ?>
-          <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
-            <span class="negrito">Erro!</span> E-mail já registrado em nossa base de dados.
-            <button type="button" class="close" data-dismiss="alert" aria-label="close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        <?php } ?>
-      </div>
-
-      <div class="row">
-        <!-- <div class="d-none d-lg-block col-2 order-2 ml-auto">
-          <div class="mt-5">
-            <ul class="navbar-nav border-left">
-              <li class="nav-item"><a href="index.php" class="nav-link">Pontos</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">Adicionar</a></li>
-              <li class="nav-item"><a href="relatorio.php" class="nav-link">Relatório</a></li>
-              <li class="nav-item"><a href="todos_funcionarios.php" class="nav-link">Funcionários</a></li>
-            </ul>
-          </div>
-        </div> -->
-
-        <div id="area-formulario" class="col-12 col-sm-11 col-md-10 mx-auto"><!-- order-1 -->
-          <h4 class="mb-3">Formulário</h4>
-
-          <form method="post" enctype="multipart/form-data" action="funcionario_controller.php?acao=inserir">
-            <div class="form-row">
-              <div class="col-4 form-group">
-                <label for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome" name="nome" placeholder="João">
-              </div>
-              <div class="col-8 form-group">
-                <label for="sobrenome">Sobrenome</label>
-                <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Silva">
-              </div>
+    <div>
+      <div class="container rounded border">
+        <div class="row">
+          <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center py-5">
+              <img class="rounded-circle mt-5" src="img/adm.jpg" width="90">
+              <span class="font-weight-bold">George W.</span>
+              <span class="text-black-50">george@teste.com</span>
+              <span>Administrador</span>
             </div>
+          </div>
+          <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+              <div class="d-flex mb-3">
+                <h6>Formulário de cadastro</h6>
+              </div>
+              <?php
+                $desc_status_cadastro = isset($_GET['inclusao']) && $_GET['inclusao'] == 0 ? 'Email em uso, tente novamente' :
+                (isset($_GET['inclusao']) && $_GET['inclusao'] == 1 ? 'Cadastrado com sucesso!' :
+                (isset($_GET['inclusao']) == null ? '' : ''));
 
-            <div class="form-row">
-              <div class="col-7 form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="joao@teste.com">
-                <small class="form-text text-muted">Não compartilhamos seu email com terceiros</small>
-              </div>
-              <div class="col-5 form-group">
-                <label for="telefone">Telefone</label>
-                <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(37) 99999 8922">
-              </div>
-            </div>
-
-            <div class="row mb-3">
-              <div class="col-3">
-                <input type="text" class="form-control" name="cep" placeholder="CEP" onblur="getDadosEnderecoPorCEP(this.value)">
-              </div>
-              <div class="col-9">
-                <input type="text" class="form-control" id="logradouro" name="rua" placeholder="Logradouro" readonly>
-              </div>
-            </div>
-
-            <div class="row mb-3">
-              <div class="col-6">
-                <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro" readonly>
-              </div>
-              <div class="col-4">
-                <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade" readonly>
-              </div>
-              <div class="col-2">
-                <input type="text" class="form-control" id="uf" name="estado" placeholder="UF" readonly>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-5 col-lg-4 form-group">
-                <label for="admissao">Admissão</label>
-                <input type="date" class="form-control" id="admissao" name="admissao">
-              </div>
-              <div class="col-7 col-lg-8 form-group">
-                <label for="foto-perfil">Foto de perfil</label>
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="foto-perfil" name="foto-perfil">
-                  <label class="custom-file-label" for="foto-perfil">Escolher arquivo</label>
+                $status_cadastro = isset($_GET['inclusao']) && $_GET['inclusao'] == 0 ? 'badge-danger' :
+                (isset($_GET['inclusao']) && $_GET['inclusao'] == 1 ? 'badge-primary' :
+                (isset($_GET['inclusao']) == null ? 'd-none' : ''));
+              ?>
+              <span class="badge shadow-sm <?= $status_cadastro ?>"><?= $desc_status_cadastro ?></span>
+              <form method="post" enctype="multipart/form-data" action="funcionario_controller.php?acao=inserir">
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="labels" for="nome">Nome</label>
+                  <input type="text" class="form-control" id="nome" name="nome" placeholder="João" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="labels" for="sobrenome">Sobrenome</label>
+                  <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Silva" required>
                 </div>
               </div>
-            </div>
-
-            <!-- <hr>
-
-            <h4 class="mb-3">Configuração</h4>
-            <div class="row">
-              <div class="col-5 col-lg-4 form-group">
-                <label for="palavra-passe">Palavra-passe</label>
-                <input type="text" class="form-control" id="palavra-passe" name="palavra-passe">
+              <div class="row mt-3">
+                <div class="col-md-12">
+                  <label class="labels" for="email">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="joao@teste.com" required>
+                </div>
+                <div class="col-md-6 mt-3">
+                  <label class="labels" for="telefone">Telefone</label>
+                  <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(xx) xxxxx xxxx" required>
+                </div>
+                <div class="col-md-6 mt-3">
+                  <label class="labels">CEP</label>
+                  <input type="text" class="form-control" name="cep" placeholder="00000-000" onblur="getDadosEnderecoPorCEP(this.value)" required>
+                </div>
+                <div class="col-md-12 mt-4">
+                  <input type="text" class="form-control" id="logradouro" name="rua" placeholder="Logradouro" readonly>
+                </div>
+                <div class="col-md-12 mt-4">
+                  <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro" readonly>
+                </div>
+                <div class="col-md-6 mt-4">
+                  <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade" readonly>
+                </div>
+                <div class="col-md-6 mt-4">
+                  <input type="text" class="form-control" id="uf" name="estado" placeholder="UF" readonly>
+                </div>
               </div>
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <label class="labels" for="admissao">Admissão</label>
+                  <input type="date" class="form-control" id="admissao" name="admissao" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="foto-perfil" for="foto-perfil" data-toggle="tooltip" data-placement="bottom" title="Selecione foto de perfil">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                  </label>
+                  <input type="file" id="foto-perfil" name="foto-perfil" required>
+                </div>
+              </div>
+              <div class="mt-5 text-center"><button class="btn btn-block btn-primary cadastrar-button">Cadastrar</button></div>
+              </form>
             </div>
-
-            <hr> -->
-
-            <button class="btn btn-primary btn-lg btn-block mt-4">Cadastrar</button>
-          </form>
+          </div>
+          <div class="col-md-4">
+            <div class="p-3 py-5">
+              <div class="d-flex justify-content-between align-items-center">
+                <span>Siga-nos também</span><!--<span class="range-us px-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>-->
+              </div>
+              <div class="redes-sociais">
+                <div class="d-flex flex-row mt-3">
+                  <i class="fab fa-linkedin-in"></i>
+                  <div class="ml-1">
+                    <span class="font-weight-bold d-block">143.423 seguidores</span>
+                    <span class="d-block text-black-50 labels">Linkedin, Inc.</span>
+                    <span class="d-block text-black-50 labels">Nov 2021 - Jan 2022</span>
+                  </div>
+                </div>
+                <hr>
+                <div class="d-flex flex-row">
+                  <i class="fab fa-github"></i>
+                  <div class="ml-1">
+                    <span class="font-weight-bold d-block">105.412 estrelas</span>
+                    <span class="d-block text-black-50 labels">GitHub, Inc.</span>
+                    <span class="d-block text-black-50 labels">Nov 2021 - Jan 2022</span>
+                  </div>
+                </div>
+              </div>
+              <hr>
+            </div>
+          </div>
         </div>
       </div>
 
