@@ -56,7 +56,7 @@ require 'jornada_controller.php'
           <div class="dropdown-menu dropdown-menu-right p-3 shadow" aria-labelledby="procurar-dropdown">
             <form class="form-inline">
               <div class="input-group">
-                <input type="text" class="form-control bg-light border-0" placeholder="Procure por...">
+                <input type="text" class="form-control bg-light border-0" id="barra-pesquisa-sm" placeholder="Procure por..." onkeyup="pesquisarFuncionarioIndex('barra-pesquisa-sm')">
                 <div class="input-group-append"><button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button></div>
               </div>
             </form>
@@ -141,7 +141,7 @@ require 'jornada_controller.php'
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="usuario-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="mr-2 d-none d-lg-inline small font-weight-bold">George Was...</span>
-            <img class="rounded-circle" src="img/funcionario_3.jpeg">
+            <img class="rounded-circle" src="img/adm.jpg">
           </a>
           <div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="usuario-dropdown">
             <a class="dropdown-item" href="#">
@@ -231,7 +231,7 @@ require 'jornada_controller.php'
                     <div class="d-flex flex-column mr-2">
                       <div class="d-flex flex-row">
                         <img class="rounded-circle" src="img/<?= $registro->foto ?>" width="33">
-                        <button class="btn-primary ml-2 align-self-center negrito" data-toggle="tooltip" data-placement="bottom" title="Registrar ponto" onclick="baterPonto(<?= $registro->idfuncionario ?>, '<?= $registro->palavra_passe ?>', <?= $registro->fk_idstatus ?>)">Registrar</button>
+                        <button class="btn-primary ml-2 align-self-center negrito" data-toggle="tooltip" data-placement="bottom" title="Registrar ponto" onclick="baterPonto(<?= $registro->idfuncionario ?>, '<?= $registro->palavra_passe ?>', '<?= $pagina ?>', <?= $registro->fk_idstatus ?>)">Registrar</button>
                         <!-- <h5 class="mb-0 ml-1" onclick="baterPonto(<?= $registro->idfuncionario ?>, <?= $registro->fk_idstatus ?>)"><span class="badge badge-primary">Registrar</span></h5> -->
                       </div>
                       <span class="data-tempo-trabalho text-black-50">Admissão <?= $registro->data_admissao ?></span>

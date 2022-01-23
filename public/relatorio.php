@@ -137,7 +137,7 @@ require 'jornada_controller.php'
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="usuario-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="mr-2 d-none d-lg-inline small font-weight-bold">George Was...</span>
-            <img class="rounded-circle" src="img/funcionario_3.jpeg">
+            <img class="rounded-circle" src="img/adm.jpg">
           </a>
           <div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="usuario-dropdown">
             <a class="dropdown-item" href="#">

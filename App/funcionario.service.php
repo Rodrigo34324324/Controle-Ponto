@@ -92,8 +92,6 @@ class FuncionarioService {
 		$stmt = $this->conexao->prepare($query);
 		$stmt->bindValue(':idfuncionario', $this->funcionario->__get('id'));
 		$stmt->execute();
-
-		header('Location: todos_funcionarios.php');
 	}
 
 	public function recuperarTotal() {

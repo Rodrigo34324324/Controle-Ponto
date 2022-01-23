@@ -44,12 +44,12 @@ function editarFuncionario(id, arquivo, nome, sobrenome, email, telefone, cep, d
 }
 
 
-function removerFuncionario(id) {
-	location.href = 'todos_funcionarios.php?acao=remover&id='+id
+function removerFuncionario(id, pagina) {
+	location.href = 'todos_funcionarios.php?acao=remover&id='+id+'&pagina='+pagina
 }
 
 
-function baterPonto(id, palavra_passe, status) {
+function baterPonto(id, palavra_passe, pagina, status) {
 	if(status == 4) {
 		alert('IMPOSSIBILITADO DE REGISTRAR PONTO!!!')
 	} else {
@@ -57,7 +57,7 @@ function baterPonto(id, palavra_passe, status) {
 		senha = md5(senha)
 
 		if(senha === palavra_passe) {
-			location.href = 'index.php?acao=inserir&id='+id+'&status='+status
+			location.href = 'index.php?acao=inserir&id='+id+'&status='+status+'&pagina='+pagina
 		}
 	}
 }

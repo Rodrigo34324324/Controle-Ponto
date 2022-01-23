@@ -129,7 +129,7 @@ require 'funcionario_controller.php'
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="usuario-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="mr-2 d-none d-lg-inline small font-weight-bold">George Was...</span>
-            <img class="rounded-circle" src="img/funcionario_3.jpeg">
+            <img class="rounded-circle" src="img/adm.jpg">
           </a>
           <div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="usuario-dropdown">
             <a class="dropdown-item" href="#">
@@ -212,7 +212,7 @@ require 'funcionario_controller.php'
 
                       <div class="mt-2 d-flex flex-row">
                         <button type="button" class="btn btn-sm btn-outline-primary w-100" data-toggle="modal" data-target="#modal" onclick="toggleFormEditarFuncionario(); editarFuncionario(<?= $registro->idfuncionario ?>, '<?= $registro->foto ?>', '<?= $registro->nome ?>', '<?= $registro->sobrenome ?>', '<?= $registro->email ?>', '<?= $registro->telefone ?>', '<?= $registro->cep ?>', '<?= $registro->data_admissao ?>')">Editar</button>
-                        <button type="button" class="btn btn-sm btn-primary w-100 ml-2" onclick="removerFuncionario(<?= $registro->idfuncionario ?>)">Deletar</button>
+                        <button type="button" class="btn btn-sm btn-primary w-100 ml-2" onclick="removerFuncionario(<?= $registro->idfuncionario ?>, <?= $pagina ?>)">Deletar</button>
                       </div>
                     </div>
                   </div>
@@ -316,7 +316,7 @@ require 'funcionario_controller.php'
                 <div class="col-md-5 border-right">
                   <div class="p-3 py-5">
                     <div class="d-flex mb-3">
-                      <h6>Formulário de cadastro</h6>
+                      <h6>Formulário de atualização</h6>
                     </div>
                     <?php
                       //$desc_status_cadastro = isset($_GET['inclusao']) && $_GET['inclusao'] == 0 ? 'Email em uso, tente novamente' :
@@ -328,7 +328,7 @@ require 'funcionario_controller.php'
                       //(isset($_GET['inclusao']) == null ? 'd-none' : ''));
                     ?>
                     <!--<span class="badge shadow-sm <?= $status_cadastro ?>"><?= $desc_status_cadastro ?></span>-->
-                    <form method="post" enctype="multipart/form-data" action="funcionario_controller.php?acao=atualizar">
+                    <form method="post" enctype="multipart/form-data" action="funcionario_controller.php?acao=atualizar&pagina=<?= $pagina ?>">
                     <input type="hidden" id="id" name="id">
                     <input type="hidden" id="arquivo" name="arquivo">
                     <div class="row">

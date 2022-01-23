@@ -28,7 +28,8 @@ if($acao == 'inserir') {
 	$atividadeService = new AtividadeService($conexao, $atividade);
 	$atividadeService->inserir();
 
-	header('Location: index.php');
+	$pagina = $_GET['pagina'];
+	header("Location: index.php?pagina=$pagina");
 	/*
 	$funcionario = new Funcionario();
 	$funcionario->__set('nome', $_POST['nome']);

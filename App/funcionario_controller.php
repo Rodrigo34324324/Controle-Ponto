@@ -164,7 +164,8 @@ if($acao == 'inserir') {
 	$funcionarioService = new FuncionarioService($conexao, $funcionario, $endereco);
 	$retorno = $funcionarioService->atualizar();
 	if($retorno['atualizacaoFuncionario'] && $retorno['atualizacaoEndereco']) {
-		header('Location: todos_funcionarios.php');
+		$pagina = $_GET['pagina'];
+		header("Location: todos_funcionarios.php?pagina=$pagina");
 	}
 } else if($acao == 'remover') {
 	$funcionario = new Funcionario();
@@ -177,6 +178,9 @@ if($acao == 'inserir') {
 
 	$funcionarioService = new FuncionarioService($conexao, $funcionario, $endereco);
 	$funcionarioService->remover();
+
+	$pagina = $_GET['pagina'];
+	header("Location: todos_funcionarios.php?pagina=$pagina");
 } else if($acao == 'enviar_email') {
 	$mensagem = new Mensagem();
 
