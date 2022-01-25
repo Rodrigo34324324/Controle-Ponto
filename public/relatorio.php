@@ -165,7 +165,7 @@ require 'jornada_controller.php'
             <div class="card-header bg-transparent header-elements-inline">
               <h6 class="card-title">Relatório</h6>
               <div class="d-flex align-items-center">
-                <button type="button" class="btn btn-light btn-sm"><i class="fas fa-file mr-2"></i> Salvar</button>
+                <button type="button" class="btn btn-light btn-sm" onclick="window.print()"><i class="fas fa-file mr-2"></i> Salvar</button>
                 <!-- <button type="button" class="btn btn-light btn-sm ml-3"><i class="fas fa-print mr-2"></i> Printar</button> -->
                 <input type="month" class="ml-3 form-control-sm" id="data-relatorio" value="<?= $data_relatorio ?>" onblur="gerarRelatorio()">
               </div>
@@ -228,7 +228,7 @@ require 'jornada_controller.php'
               </div>
             </div>
 
-            <div class="table-responsive">
+            <div class="table-responsive pb-5">
               <table class="table table-hover">
                 <thead>
                   <tr>
@@ -260,7 +260,7 @@ require 'jornada_controller.php'
               </table>
             </div>
 
-            <div class="card-body">
+            <!-- <div class="card-body">
               <div class="d-md-flex">
                 <div class="pt-2 mb-3 wmin-md-400 ml-auto">
                   <h6 class="mb-3 text-left">Resumo</h6>
@@ -287,7 +287,7 @@ require 'jornada_controller.php'
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <div class="card-footer">
               <span class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit</span>
