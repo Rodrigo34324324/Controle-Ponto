@@ -22,4 +22,4 @@ Uma vez acessada via terminal a pasta public, digite o seguinte comando para ini
 
 Agora nossa aplicação estará funcionando e podera ser acessada através da url: http://localhost:8080/
 
-![Alt text](https://assets.digitalocean.com/articles/alligator/boo.svg "a title")
+![Alt text](img/adm.jpg "a title")
