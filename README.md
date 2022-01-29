@@ -21,5 +21,3 @@ Copie o caminho para a pasta public, abra o terminal e acesse a pasta public. Ex
 Uma vez acessada via terminal a pasta public, digite o seguinte comando para iniciar o servidor embutido do PHP: `php -S localhost:8080`
 
 Agora nossa aplicação estará funcionando e podera ser acessada através da url: http://localhost:8080/
-
-![Alt text](img/adm.jpg "a title")
