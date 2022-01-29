@@ -260,10 +260,10 @@ require 'funcionario_controller.php'
                 </div>
                 <hr>
                 <div class="d-flex flex-row">
-                  <i class="fab fa-github"></i>
+                  <i class="fab fa-facebook"></i>
                   <div class="ml-1">
-                    <span class="font-weight-bold d-block">105.412 estrelas</span>
-                    <span class="d-block text-black-50 labels">GitHub, Inc.</span>
+                    <span class="font-weight-bold d-block">105.412 seguidores</span>
+                    <span class="d-block text-black-50 labels">Facebook, Inc.</span>
                     <span class="d-block text-black-50 labels">Nov 2021 - Jan 2022</span>
                   </div>
                 </div>
