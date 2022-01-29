@@ -22,8 +22,8 @@ Uma vez acessada via terminal a pasta public, digite o seguinte comando para ini
 
 Agora nossa aplicação estará funcionando e podera ser acessada através da url: http://localhost:8080/
 
-![WhatsApp Image 2022-01-25 at 21 55 44](https://user-images.githubusercontent.com/97996768/151674496-5f642950-e21e-4c2d-90c5-804c4bae80ce.jpeg)
-![WhatsApp Image 2022-01-25 at 22 02 55](https://user-images.githubusercontent.com/97996768/151674503-c6f0294a-4cc4-4dfa-b87a-e3e05d27385d.jpeg)
-![WhatsApp Image 2022-01-25 at 21 56 09](https://user-images.githubusercontent.com/97996768/151674498-16f7cd3d-ddc5-40d7-b9d3-c7d490797f2d.jpeg)
-![WhatsApp Image 2022-01-25 at 21 56 30](https://user-images.githubusercontent.com/97996768/151674501-7afb5d2f-493f-4b6e-bd7e-7a87de89aebc.jpeg)
-![WhatsApp Image 2022-01-25 at 21 57 56](https://user-images.githubusercontent.com/97996768/151674502-838b6482-f55c-4670-975f-e699b12828b3.jpeg)
+![a](https://user-images.githubusercontent.com/97996768/151675666-5baeceae-e8fe-4dd2-8e7a-294c1c4d4e39.png)
+![b](https://user-images.githubusercontent.com/97996768/151675668-1625eb58-35d4-4e8b-948c-a2f6e9705966.png)
+![c](https://user-images.githubusercontent.com/97996768/151675669-1a4731b5-723f-4e15-9b67-fa898ed3594f.png)
+![d](https://user-images.githubusercontent.com/97996768/151675670-d2f9c078-1693-4b02-bc12-0defe842a7bb.png)
+![e](https://user-images.githubusercontent.com/97996768/151675671-62028ce6-7c36-44dc-886b-c2a098b2df66.png)
