@@ -163,13 +163,13 @@ require 'jornada_controller.php'
     </nav>
 
     <div class="container">
-      <div class="mb-4 text-center redes-sociais">
+      <!-- <div class="mb-4 text-center redes-sociais">
         <ul class="list-inline">
           <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
           <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
           <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
         </ul>
-      </div>
+      </div> -->
 
       <div class="row">
         <!-- <div class="d-none d-lg-block col-2 order-2">
@@ -255,13 +255,24 @@ require 'jornada_controller.php'
         </div>
       </div>
 
-      <footer class="my-5 pt-5 text-muted text-center">
+      <footer class="border-top my-5 pt-5 text-muted text-center">
         <p class="mb-1">&copy; 2021-2022 Controle Ponto</p>
         <ul class="list-inline">
           <li class="list-inline-item"><a href="#">Privacidade</a></li>
           <li class="list-inline-item"><a href="#">Termos</a></li>
           <li class="list-inline-item"><a href="#">Suporte</a></li>
         </ul>
+
+        <div class="redes-sociais">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-discord"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-github"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+          </ul>
+        </div>
       </footer>
     </div>
 

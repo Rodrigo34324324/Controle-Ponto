@@ -113,7 +113,7 @@ if($acao == 'inserir') {
 
 	$conexao = new Conexao();
 
-	$total_registros_pagina = 6;
+	$total_registros_pagina = 9;
 	$pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 	$deslocamento = ($pagina - 1) * $total_registros_pagina;
 

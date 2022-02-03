@@ -138,7 +138,8 @@ html {
     border: 1px solid #b5b3b3;
     border-radius: 5px;
     padding: 6px;
-    cursor: pointer
+    cursor: pointer;
+    box-shadow: rgb(38, 57, 77) 0px 5px 7.5px -1px
 }
 
 .hora-atual /* .info-funcionarios */ {

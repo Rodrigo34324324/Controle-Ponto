@@ -190,7 +190,7 @@ require 'funcionario_controller.php'
                 (isset($_GET['inclusao']) && $_GET['inclusao'] == 1 ? 'badge-primary' :
                 (isset($_GET['inclusao']) == null ? 'd-none' : ''));
               ?>
-              <span class="badge shadow-sm <?= $status_cadastro ?>"><?= $desc_status_cadastro ?></span>
+              <span class="badge shadow-sm p-2 <?= $status_cadastro ?>"><?= $desc_status_cadastro ?></span>
               <form method="post" enctype="multipart/form-data" action="funcionario_controller.php?acao=inserir">
               <div class="row">
                 <div class="col-md-6">
