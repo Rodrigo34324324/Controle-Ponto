@@ -22,8 +22,7 @@ Uma vez acessada via terminal a pasta public, digite o seguinte comando para ini
 
 Agora nossa aplicação estará funcionando e podera ser acessada através da url: http://localhost:8080/
 
-![a](https://user-images.githubusercontent.com/97996768/151675666-5baeceae-e8fe-4dd2-8e7a-294c1c4d4e39.png)
-![b](https://user-images.githubusercontent.com/97996768/151675668-1625eb58-35d4-4e8b-948c-a2f6e9705966.png)
-![c](https://user-images.githubusercontent.com/97996768/151675669-1a4731b5-723f-4e15-9b67-fa898ed3594f.png)
-![d](https://user-images.githubusercontent.com/97996768/151675670-d2f9c078-1693-4b02-bc12-0defe842a7bb.png)
-![e](https://user-images.githubusercontent.com/97996768/151675671-62028ce6-7c36-44dc-886b-c2a098b2df66.png)
+![FireShot Capture 00 - App Controle Ponto - localhost](https://user-images.githubusercontent.com/97996768/152341554-dbea05be-5604-4965-8142-2efdc700fe74.png)
+![FireShot Capture 01 - App Controle Ponto - localhost](https://user-images.githubusercontent.com/97996768/152341566-6bc21721-2e3b-4dbd-b586-c73b6a5a8dba.png)
+![FireShot Capture 02 - App Controle Ponto - localhost](https://user-images.githubusercontent.com/97996768/152341587-e6d8504f-ac03-43a8-82db-9dff846ad85d.png)
+
